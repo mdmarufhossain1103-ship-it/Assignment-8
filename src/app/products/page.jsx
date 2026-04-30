@@ -1,4 +1,5 @@
-import { getProducts } from '@/components/lib/data';
+
+import { getProducts } from '@/lib/data';
 import Image from 'next/image';
 import React from 'react';
 
