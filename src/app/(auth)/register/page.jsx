@@ -21,14 +21,14 @@ const RegisterPage = () => {
             alert(error.message)
         }
         if (res) {
-            alert("Registered successfully: ", res)
+            alert("Registered successfully!")
         }
     }
     return (
         <div className='w-full flex min-h-[80vh] items-center justify-center my-20'>
             <form onSubmit={handleSubmit(handleRegister)} className='w-full max-w-md flex flex-col p-5 gap-5 shadow-lg rounded-lg border'>
                 <h1 className='text-2xl font-bold text-center my-5'>Register</h1>
-                <input type="name" {...register("name", { required: "Name field is required" })} className='border p-3 rounded-xl' placeholder='Enter your name' />
+                <input type="text" {...register("name", { required: "Name field is required" })} className='border p-3 rounded-xl' placeholder='Enter your name' />
                 {errors.name && <p className='text-red-500'>*{errors.name.message}</p>}
                 <input type="email" {...register("email", { required: "Email field is required" })} className='border p-3 rounded-xl' placeholder='Enter your email' />
                 {errors.email && <p className='text-red-500'>*{errors.email.message}</p>}

@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavbarPage from "@/components/shered/NavbarPage";
-import FooterPage from "@/components/shered/FooterPage";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +25,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body>
-        <NavbarPage></NavbarPage>
         {children}
-        <FooterPage></FooterPage>
         </body>
     </html>
   );

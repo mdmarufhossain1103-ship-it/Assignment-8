@@ -4,25 +4,33 @@ import { error } from 'better-auth/api';
 import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
     const { register,handleSubmit, formState: {errors},} = useForm();
 
+    const handleGoogleLogin = async() =>{
+        const data = await authClient.signIn.social({
+            provider: "google",
+        })
+    }
+
     const handlelogin = async(data) =>{
         const {email,password} = data;
         
-        const {data:res,error} = await authClient.signUp.email({
-            name: name,
+        const {data:res,error} = await authClient.signIn.email({
             email: email,
             password: password,
+            rememberMe: true,
             callbackURL: '/',
         })
         
         if (error) {
-            alert(error.message)
+            alert(error.message);
+            return;
         }
         if (res) {
-        alert("Registered successfully: ", res)
+        alert("Login successfully!")
         }
     }
     return (
@@ -35,6 +43,12 @@ const LoginPage = () => {
                 {errors.password && <p className='text-red-500'>*{errors.password.message}</p>}
                 <button className='btn btn-primary mb-3' type='submit'>Submit</button>
                 <p className='text-center text-md'>Don't have an account?<Link className='text-blue-400' href={'/register'}>Register</Link></p>
+                <div className="w-full">
+                    <div className="divider">OR</div>
+                </div>
+                <div>
+                    <p onClick={handleGoogleLogin} className='flex items-center justify-center gap-1 text-xl btn btn-info text-white font-bold'><FaGoogle />SingIn with Google</p>
+                </div>
             </form>
         </div>
     );
