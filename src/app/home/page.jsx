@@ -17,7 +17,6 @@ const HomePage = async() => {
                                                 <Image className='w-full' src={product.image} alt={product.name} width={300} height={300}></Image>
                                                 <div className="card-body">
                                                     <h2 className="card-title text-2xl font-bold my-5">{product.name}</h2>
-                                                    <h3 className='text-xl font-semibold mb-5'>{product.brand}</h3>
                                                     <p className='text-lg'>{product.description}</p>
                                                 </div>
 
