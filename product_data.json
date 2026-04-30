@@ -1,0 +1,70 @@
+{
+    "products":[
+        {
+            "id": 1,
+            "name": "UV Protection Sunglasses",
+            "brand": "SunShade",
+            "price": 15,
+            "rating": 4.7,
+            "stock": 10,
+            "description": "Stylish UV protection sunglasses perfect for summer outings.",
+            "image": "https://i.ibb.co.com/LBS5Mtc/What-are-UV-Sunglasses-900x600.jpg",
+            "category": "Accessories"
+        },
+        {
+            "id": 2,
+            "name": "Beach Straw Hat",
+            "brand": "SunnyWear",
+            "price": 12,
+            "rating": 4.5,
+            "stock": 25,
+            "description": "Lightweight straw hat to keep you cool and protected from the sun.",
+            "image": "https://i.ibb.co.com/N2P5DZJB/hat.webp",
+            "category": "Accessories"
+        },
+        {
+            "id": 3,
+            "name": "Portable Hand Fan",
+            "brand": "CoolBreeze",
+            "price": 8,
+            "rating": 4.3,
+            "stock": 40,
+            "description": "Compact and rechargeable hand fan for instant cooling anywhere.",
+            "image": "https://i.ibb.co.com/bgb6Ds2G/Kawaii-Sanrio-Handheld-Fan-1.webp",
+            "category": "Electronics"
+        },
+        {
+            "id": 4,
+            "name": "Sunscreen SPF 50",
+            "brand": "SkinGuard",
+            "price": 10,
+            "rating": 4.8,
+            "stock": 30,
+            "description": "High protection sunscreen to prevent sunburn and skin damage.",
+            "image": "https://i.ibb.co.com/W4ZLmZ0W/1734208613983.webp",
+            "category": "Skincare"
+        },
+        {
+            "id": 5,
+            "name": "Inflatable Pool Float",
+            "brand": "AquaFun",
+            "price": 20,
+            "rating": 4.6,
+            "stock": 15,
+            "description": "Fun and durable inflatable float for pool and beach relaxation.",
+            "image": "https://i.ibb.co.com/v5rd8xr/1-d873a321-e106-414e-b003-079e2bbfc324.webp",
+            "category": "Outdoor"
+        },
+        {
+            "id": 6,
+            "name": "Insulated Water Bottle",
+            "brand": "HydroKeep",
+            "price": 18,
+            "rating": 4.9,
+            "stock": 22,
+            "description": "Keeps your drinks cold for hours, perfect for hot summer days.",
+            "image": "https://i.ibb.co.com/YT3RSM8c/Yaz-Fu-Ay0v-Ebs8-Ui-Mqa-Pa0-VGVOACwbscwsc3k-UIb-C.jpg",
+            "category": "Essentials"
+        }
+    ]
+}
