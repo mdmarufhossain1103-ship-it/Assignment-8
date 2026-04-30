@@ -3,25 +3,27 @@ import { authClient } from '@/lib/auth-client';
 import { error } from 'better-auth/api';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
     const handleRegister = async (data) => {
-        const { name, email, password } = data;
+        const {name, email, password,photo} = data;
 
         const { data: res, error } = await authClient.signUp.email({
             name: name,
             email: email,
+            photo: photo,
             password: password,
             callbackURL: '/',
         })
 
         if (error) {
-            alert(error.message)
+            toast.error(error.message)
         }
         if (res) {
-            alert("Registered successfully!")
+            toast.success("Registered successfully!")
         }
     }
     return (
@@ -32,9 +34,11 @@ const RegisterPage = () => {
                 {errors.name && <p className='text-red-500'>*{errors.name.message}</p>}
                 <input type="email" {...register("email", { required: "Email field is required" })} className='border p-3 rounded-xl' placeholder='Enter your email' />
                 {errors.email && <p className='text-red-500'>*{errors.email.message}</p>}
+                <input type="text" {...register("photo", { required: "Photo field is required" })} className='border p-3 rounded-xl' placeholder='Enter your photo url' />
+                {errors.photo && <p className='text-red-500'>*{errors.photo.message}</p>}
                 <input type="password" {...register("password", { required: "Password field is required" })} className='border p-3 rounded-xl' placeholder='Enter your password' />
                 {errors.password && <p className='text-red-500'>*{errors.password.message}</p>}
-                <button className='btn btn-primary mb-3' type='submit'>Submit</button>
+                <button className='btn btn-primary mb-3' type='submit'>Registar</button>
             </form>
         </div>
     );

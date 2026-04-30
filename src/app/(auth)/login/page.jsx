@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
     const { register,handleSubmit, formState: {errors},} = useForm();
@@ -26,11 +27,11 @@ const LoginPage = () => {
         })
         
         if (error) {
-            alert(error.message);
+            toast.error(error.message);
             return;
         }
         if (res) {
-        alert("Login successfully!")
+        toast.success("Login successfully!")
         }
     }
     return (
@@ -41,7 +42,7 @@ const LoginPage = () => {
                 {errors.email && <p className='text-red-500'>*{errors.email.message}</p>}
                 <input type="password" {...register("password", { required: "Password feild is required" })} className='border p-3 rounded-xl' placeholder='Enter your password'/>
                 {errors.password && <p className='text-red-500'>*{errors.password.message}</p>}
-                <button className='btn btn-primary mb-3' type='submit'>Submit</button>
+                <button className='btn btn-primary mb-3' type='submit'>Login</button>
                 <p className='text-center text-md'>Don't have an account?<Link className='text-blue-400' href={'/register'}>Register</Link></p>
                 <div className="w-full">
                     <div className="divider">OR</div>
