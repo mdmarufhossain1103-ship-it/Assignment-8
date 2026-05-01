@@ -1,9 +1,16 @@
-
+'use client'
 import Link from 'next/link';
 import logo from '../../assets/logo.jpg'
 import Image from 'next/image';
+import { authClient } from '@/lib/auth-client';
 
 const NavbarPage = () => {
+    const userData = authClient.useSession();
+    console.log(userData)
+    const user = userData.data?.user;
+    const handleSignout = async() =>{
+        await authClient.signOut();
+    }
     const links = <>
     <Link href={'/'}>Home</Link>
     <Link href={'/products'}>Product</Link>
@@ -31,10 +38,14 @@ const NavbarPage = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className='flex gap-2 items-center'>
-                        <Image src={logo} alt='logo' width={50} height={50}></Image>
-                        <Link className='btn btn-primary' href={'/login'}>Login</Link>
-                    </div>
+                        {!user && <Link className='btn btn-primary' href={'/login'}>Login</Link>}
+                        {user && <div className="avatar gap-3">
+                            <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+                                <Image src={user?.image} alt='Avater' width={50} height={50} referrerPolicy='no-referrer'></Image>
+                            </div>
+                            <button onClick={handleSignout} className='btn btn-error text-white font-bold'>SignOut</button>
+                        </div>
+                        }
                 </div>
             </div>
         </div>
