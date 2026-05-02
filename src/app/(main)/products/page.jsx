@@ -14,13 +14,11 @@ const ProductsPage = async() => {
                 {
                     products.map(product => {
                         return (
-                            <div key={product.id}>
-                                <div className="card bg-base-100 p-5 rounded-lg shadow-sm h-full">
-                                    <Image className='w-full' src={product.image} alt={product.name} width={300} height={300}></Image>
+                            <div key={product.id} className='h-full'>
+                                <div className="card bg-base-100 p-5 rounded-lg shadow-sm border border-gray-100 flex flex-col h-full">
+                                    <Image className='w-full relative aspect-square overflow-hidden rounded-md' src={product.image} alt={product.name} width={300} height={300}></Image>
                                     <div className="card-body">
                                         <h2 className="card-title text-2xl font-bold my-5">{product.name}</h2>
-                                        <h3 className='text-xl font-semibold mb-5'>{product.brand}</h3>
-                                        <p className='text-lg'>{product.description}</p>
                                     </div>
                                 </div>
                             </div>
