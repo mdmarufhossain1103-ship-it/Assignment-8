@@ -1,11 +1,14 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
 import { error } from 'better-auth/api';
+import { useRouter } from 'next/navigation';
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
     const handleRegister = async (data) => {
@@ -16,14 +19,14 @@ const RegisterPage = () => {
             email: email,
             image: photo,
             password: password,
-            callbackURL: '/',
         })
 
         if (error) {
             toast.error(error.message)
         }
         if (res) {
-            toast.success("Registered successfully!")
+            toast.success("Registered successfully!");
+            router.push('/login');
         }
     }
     return (

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import logo from '../../assets/logo.jpg'
 import Image from 'next/image';
 import { authClient } from '@/lib/auth-client';
+import { usePathname } from 'next/navigation';
 
 const NavbarPage = () => {
     const userData = authClient.useSession();
@@ -10,10 +11,12 @@ const NavbarPage = () => {
     const handleSignout = async() =>{
         await authClient.signOut();
     }
+    const pathName = usePathname();
+    const isActive = (path) => pathName === path;
     const links = <>
-    <Link href={'/'}>Home</Link>
-    <Link href={'/products'}>Product</Link>
-    <Link href={'/profile'}>My Profile</Link>
+    <Link href={'/'} className={isActive('/') ? 'text-primary font-bold' : ''}>Home</Link>
+        <Link href={'/products'} className={isActive('/products') ? 'text-primary font-bold' : ''}>Product</Link>
+        <Link href={'/profile'} className={isActive('/profile') ? 'text-primary font-bold' : ''}>My Profile</Link>
     </>
     return (
         <div>

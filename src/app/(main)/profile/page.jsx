@@ -7,6 +7,11 @@ import React from 'react';
 const ProfilePage = () => {
     const userData = authClient.useSession();
     const user = userData.data?.user;
+    if(!user){
+        return <div>
+            <p className='flex items-center justify-center my-15 font-bold text-3xl'>No user found.</p>
+        </div>
+    }
     return (
         <div className=' flex items-center justify-center my-15'>
             <div className="card bg-base-100 w-96 shadow-sm">

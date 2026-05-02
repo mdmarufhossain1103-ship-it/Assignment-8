@@ -1,9 +1,11 @@
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { BsListNested } from 'react-icons/bs';
 
 const UpdateProfile = () => {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
     const onSubmit = async(data) =>{
@@ -12,6 +14,8 @@ const UpdateProfile = () => {
             name: name,
             image: photo,
         })
+        document.getElementById('my_modal_1').close();
+        router.push('/profile');
     }
     return (
         <div>

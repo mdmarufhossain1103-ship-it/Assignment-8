@@ -1,9 +1,19 @@
 
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 import React from 'react';
 import { MdOutlineStar } from 'react-icons/md';
 
 const DetailsPage = async({params}) => {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+
+    if (!session){
+        redirect('/login');
+    }
     const {id} =await params;
         const res = await fetch('http://localhost:4000/products')
         const products = await res.json();
