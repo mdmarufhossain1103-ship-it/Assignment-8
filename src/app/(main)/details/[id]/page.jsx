@@ -24,6 +24,18 @@ const DetailsPage = async({params}) => {
                         <p className='text-4xl font-bold text-gray-400'>${product.price}</p>
                     </div>
                     <p className='text-center mt-5'><span className='bg-green-400 rounded-full p-2 text-xl text-white'>Category: {product.category}</span></p>
+                    <ul className='text-center mt-5 font-bold text-gray-400'>
+                        <h2 className='underline'>Summer Care Tips</h2>
+                        <li>Use SPF 30–50+ daily, even indoors near windows</li>
+                        <li>Reapply every 2–3 hours when outside</li>
+                        <li>Go for lightweight, non-greasy formulas</li>
+                    </ul>
+                    <ul className='text-center mt-5 font-bold text-gray-400'>
+                        <h2 className='underline'>Top Brands</h2>
+                        <li>Neutrogena</li>
+                        <li>La Roche-Posay</li>
+                        <li>CeraVe</li>
+                    </ul>
                 </div>
             </div>
         </div>

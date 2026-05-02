@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-
 const HomePage = async() => {
     const products = await getProducts();
     return (
