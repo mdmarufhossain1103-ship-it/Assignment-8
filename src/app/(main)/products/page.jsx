@@ -5,7 +5,6 @@ import React from 'react';
 
 const ProductsPage = async() => {
     const products = await getProducts();
-    console.log(products,"products");
     return (
         <div className='max-w-[80%] mx-auto'>
             <h2 className='mt-10 text-center text-4xl font-bold'>Our Products</h2>

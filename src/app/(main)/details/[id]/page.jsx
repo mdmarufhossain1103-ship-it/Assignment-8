@@ -15,7 +15,7 @@ const DetailsPage = async({params}) => {
         redirect('/login');
     }
     const {id} =await params;
-        const res = await fetch('http://localhost:4000/products')
+    const res = await fetch('https://assignment-8-json.onrender.com/products')
         const products = await res.json();
         const product = products.find(p => p.id == id)
     return (
