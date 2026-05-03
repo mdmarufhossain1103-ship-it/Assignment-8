@@ -45,7 +45,7 @@ const NavbarPage = () => {
                             <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
                                 <Image src={user?.image} alt='Avater' width={50} height={50} referrerPolicy='no-referrer'></Image>
                             </div>
-                            <button onClick={handleSignout} className='btn btn-error text-white font-bold'>SignOut</button>
+                            <button onClick={handleSignout} className='btn btn-error text-white font-bold'>LogOut</button>
                         </div>
                         }
                 </div>
