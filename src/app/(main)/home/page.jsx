@@ -8,9 +8,10 @@ const HomePage = async() => {
     const products = await getProducts();
     return (
         <div>
+            <h2 className='text-center text-4xl font-bold text-accent'>Popular Products</h2>
                <div className='grid grid-cols-1 md:grid-cols-3 gap-7 my-20'>
                             {
-                                products.map(product => {
+                                products.slice(0,3).map(product => {
                                     return (
                                         <div key={product.id}>
                                             <div className="card bg-base-100 p-5 rounded-lg shadow-sm h-full">
